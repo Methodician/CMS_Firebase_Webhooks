@@ -15,6 +15,7 @@
           <h3>5) npm i @angular/material @angular/cdk @angular/animations (Optional step from buter quickstart)</h3>
           <h3>6) Used styles and themes from <a href="https://flight.run" target="_blank">Flight</a> since I'm not
             great with css/scss</h3>
+          <br><br>
           <h2>Build out basics:</h2>
           <h3>7) Created blog (detail/list/preview), home, admin and nav-menu components (ng g component
             components/blog)</h3>
@@ -22,11 +23,28 @@
           <h3>9) Added all the relevant routes to my nav and routing module</h3>
           <h3>10) Set up my blog components and service to work with my headless CMS (Butter)</h3>
           <h3>11) Used Flight's cool carousel system to display featured posts, sompe pipes for HTML, etc...</h3>
+          <br><br>
           <h2>Introduce functions:</h2>
           <h3>1) in the terminal: firebase init... I selected RTDB, Functions, and Hosting and chose my default project
             and defaults except TypeScript for Functions and declined TSLint (since this is a quick demo and I've had
             issues with it in the past) and I chose "dist" as my public directory and "yes" to configure as SPA since
             this is an Angular project after all...</h3>
+          <h3>3) Opened a terminal to the Functions folder and npm install buttercms</h3>
+          <h3>4) Import admin and Butter into functions/src/index.ts</h3>
+          <h3>5) create my butter constant just like in BlogService</h3>
+        </div>
+      </div>
+    </div>
+    <div class="col-12 section-title">
+      <h1>Other things you could do:</h1>
+    </div>
+    <div class="mvp-container">
+      <div class="row">
+        <div class="col-12 nvp-intro">
+          <h3>Butter doesn't return a compressed version of your posts or pages. You could use your Firebase list of
+            slugs and/or some condensed preview objects if Butter's return was too massive (special cases)</h3>
+          <br><br>
+          <h3>You could use Firebase to create comment system or chats specific to posts or pages.</h3>
         </div>
       </div>
     </div>

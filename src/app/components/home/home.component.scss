@@ -19,6 +19,10 @@ p {
 
 // START HERO CONTAINER STYLES
 // this container houses the logo img and text divs as well as all of the breakpoints
+h2 {
+  font-size: 20px;
+}
+
 .hero-container {
   position: relative;
   z-index: 1;

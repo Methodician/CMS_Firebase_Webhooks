@@ -1,0 +1,168 @@
+@import "../../../sass/vars.scss";
+
+nav,
+.navbar-spacer,
+.navbar-plate {
+  height: 60px;
+  width: 100%;
+
+  @media screen and (min-width: 1024px) {
+    height: 90px;
+  }
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: fixed;
+  top: 0;
+  left: 0;
+  box-shadow: 0 0 10px 0 #0006;
+  z-index: 1000;
+
+  @media screen and (min-width: 640px) {
+    justify-content: flex-start;
+  }
+}
+
+.navbar-plate {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: #fff;
+  z-index: 10;
+}
+
+.brand-logo {
+  padding: 0 20px 0 5px;
+  outline: none;
+  z-index: 15;
+
+  img {
+    width: 90px;
+
+    @media screen and (min-width: 1024px) {
+      width: 150px;
+      padding: 0 20px;
+    }
+  }
+}
+
+.menu-toggle {
+  width: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 4px 18px;
+  margin-right: 5px;
+  border: 1px solid #ccc;
+  border-radius: 2px;
+  background-color: transparent;
+  outline: none;
+  z-index: 15;
+  transition: border 0.25s;
+
+  .dot {
+    height: 6px;
+    width: 6px;
+    margin: 2px;
+    border-radius: 100%;
+    background-color: #ccc;
+    transition: background-color 0.25s;
+  }
+
+  &:hover .dot,
+  &:active .dot,
+  &.toggle-on .dot {
+    background-color: $accent;
+  }
+
+  &:hover,
+  &:active,
+  &.toggle-on {
+    border: 1px solid $accent;
+  }
+
+  @media screen and (min-width: 640px) {
+    display: none;
+  }
+}
+
+.main-menu {
+  height: 100%;
+  display: none;
+  z-index: 15;
+
+  @media screen and (min-width: 640px) {
+    display: flex;
+  }
+
+  .menu-item {
+    height: 100%;
+    padding: 20px;
+    border-top: 5px solid transparent;
+    border-bottom: 5px solid transparent;
+    color: #616161;
+    transition: border 0.25s, color 0.25s ease-in;
+
+    &:hover,
+    &:active {
+      border-bottom: 5px solid $accent;
+      color: $accent;
+    }
+
+    @media screen and (min-width: 1024px) {
+      font-size: 1.4rem;
+    }
+  }
+}
+
+.dropdown {
+  width: 100%;
+  visibility: hidden;
+  opacity: 0;
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: -100%;
+  left: 0;
+  box-shadow: 0 3px 5px 0 #0006;
+  background-color: #28154bee;
+  z-index: 5;
+  transition: opacity 0.25s, top 0.25s, visibility 0.25s;
+
+  &.show {
+    visibility: visible;
+    top: 60px;
+    opacity: 1;
+    transition: opacity 0.25s, top 0.25s, visibility 0s;
+  }
+
+  @media screen and (min-width: 640px) {
+    display: none;
+  }
+
+  .menu-item {
+    width: 100%;
+    padding: 20px 20px 20px 30px;
+    border-top: 1px solid #fff6;
+    border-left: 5px solid transparent;
+    background-color: transparent;
+    color: #fff;
+    transition: background-color 0.2s;
+
+    &:hover,
+    &:active {
+      border-left: 5px solid $accent;
+      background-color: #fff1;
+    }
+  }
+}
+
+.menu-item {
+  display: flex;
+  align-items: center;
+  outline: none;
+}

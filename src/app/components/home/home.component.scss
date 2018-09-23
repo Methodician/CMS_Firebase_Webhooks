@@ -1,0 +1,499 @@
+@import "../../../sass/vars.scss";
+@import "../../../sass/mixins.scss";
+
+p {
+  font-size: 18px;
+  line-height: 32px;
+  color: #1f1f1e;
+  font-family: 'Source Sans Pro', sans-serif;
+  font-weight: 300;
+  letter-spacing: 0.4px;
+}
+
+.box-shadow {
+  -webkit-box-shadow: 0 10px 6px -6px rgba(0, 0, 0, 0.40);
+  -moz-box-shadow: 0 10px 6px -6px rgba(0, 0, 0, 0.40);
+  box-shadow: 0 10px 6px -6px rgba(0, 0, 0, 0.40);
+}
+
+
+// START HERO CONTAINER STYLES
+// this container houses the logo img and text divs as well as all of the breakpoints
+.hero-container {
+  position: relative;
+  z-index: 1;
+  overflow-y: hidden;
+  overflow-x: hidden;
+
+  .hero-wrapper {
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: center;
+    align-items: center;
+
+    @include respond-to($desktop-sm) {
+      flex-direction: row;
+      justify-content: space-between;
+    }
+  }
+
+  .text-container {
+    .hero-text {
+      font-family: 'Ubuntu', sans-serif;
+      color: white;
+      font-size: 16px;
+      line-height: 22px;
+      text-align: center;
+      margin: 10px 0;
+      padding: 0 20px;
+
+      @include respond-to($phone-md) {
+        font-size: 20px;
+        line-height: 26px;
+      }
+
+      @include respond-to(416) {
+        font-size: 24px;
+        line-height: 30px;
+      }
+
+      @include respond-to($tablet-sm) {
+        font-size: 36px;
+        line-height: 42px;
+      }
+
+      @include respond-to($tablet-lg) {
+        padding: 0 60px;
+        font-size: 40px;
+        line-height: 46px;
+      }
+
+      @include respond-to($desktop-sm) {
+        padding: 0 60px;
+        font-size: 44px;
+        line-height: 50px;
+        margin: 20px 0;
+        text-align: left;
+      }
+
+      @include respond-to($desktop-md) {
+        font-size: 50px;
+        line-height: 56px;
+      }
+    }
+
+    .hero-body-text {
+      font-family: 'Source Sans Pro', sans-serif;
+      color: white;
+      font-weight: 200;
+      font-size: 14px;
+      text-align: center;
+      display: none;
+
+      @include respond-to($desktop-sm) {
+        display: block;
+        padding: 0 60px;
+        margin: 20px 0;
+        font-size: 20px;
+        line-height: 24px;
+        font-weight: 300;
+        letter-spacing: 1.25px;
+        text-align: left;
+      }
+    }
+  }
+
+  .logo-container {
+    margin: 15px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .flight-ship {
+      width: 100px;
+      margin: 10px 0;
+
+      @include respond-to($phone-md) {
+        width: 125px;
+        margin: 20px 0;
+      }
+
+      @include respond-to($tablet-sm) {
+        width: 150px;
+      }
+
+      @include respond-to($tablet-md) {
+        width: 125px;
+      }
+
+      @include respond-to($desktop-sm) {
+        width: 225px;
+        //margin-right: 100px;
+      }
+    }
+
+    .flight-text {
+      width: 100px;
+      margin-top: 10px;
+
+      @include respond-to($tablet-sm) {
+        width: 125px;
+      }
+
+      @include respond-to($tablet-md) {
+        display: none;
+      }
+    }
+  }
+}
+
+// END HERO CONTAINER STYLES
+// START PROCESS CONTAINER
+.section-title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 20px;
+
+  h1 {
+    font-size: 36px;
+    font-weight: bold;
+    color: $primary;
+    letter-spacing: 1.5px;
+
+    @include respond-to($tablet-sm) {
+      font-size: 48px;
+    }
+  }
+}
+
+.process-container {
+  padding-bottom: 20px;
+
+  .grid-container {
+    padding: 10px;
+  }
+
+  .process-item {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    @include respond-to($desktop-sm) {
+      flex-direction: row;
+    }
+
+    .process-img {
+      border-radius: 20px;
+
+      img {
+        width: 125px;
+        margin-top: 10px;
+
+        @include respond-to($phone-md) {
+          width: 150px;
+        }
+
+        @include respond-to($tablet-sm) {
+          width: 125px;
+        }
+
+        @include respond-to($tablet-md) {
+          width: 150px;
+        }
+
+        @include respond-to($desktop-sm) {}
+      }
+    }
+
+    .process-text {
+      padding: 10px 20px;
+      text-align: center;
+
+      @include respond-to($phone-lg) {
+        padding: 20px 40px;
+      }
+
+      h1 {
+        font-size: 26px;
+        color: $primary;
+        margin-bottom: 20px;
+
+        @include respond-to($phone-md) {
+          font-size: 28px;
+        }
+
+        @include respond-to($tablet-md) {
+          text-align: left;
+          font-size: 24px;
+        }
+
+        @include respond-to($tablet-lg) {
+          font-size: 26px;
+        }
+      }
+
+      p {
+        font-size: 14px;
+        line-height: 20px;
+        color: #1f1f1e;
+        font-family: 'Source Sans Pro', sans-serif;
+        font-weight: 300;
+        letter-spacing: 0.4px;
+
+        @include respond-to($phone-md) {
+          font-size: 16px;
+          line-height: 22px;
+        }
+
+        @include respond-to($tablet-sm) {
+          font-size: 18px;
+          line-height: 24px;
+        }
+
+        @include respond-to($tablet-md) {
+          text-align: left;
+          font-size: 16px;
+          line-height: 22px;
+        }
+
+        @include respond-to($desktop-sm) {
+          font-size: 18px;
+          line-height: 24px;
+        }
+      }
+    }
+  }
+}
+
+//END PROCESS CONTAINER
+//START SPEC CONTAINER
+// .spec-container {
+//   width: 100%;
+//   background-color: $primary;
+//   color: white;
+//   display: flex;
+//   flex-direction: column;
+//   justify-content: space-between;
+//   padding: 10px;
+//   @include respond-to($desktop-up) {
+//     background-attachment: fixed;
+//   }
+//   .spec-title {
+//     height: 100px;
+//     width: 100%;
+//     display: flex;
+//     justify-content: center;
+//     align-items: center;
+//     // font-weight: 600;
+//     h1 {
+//       font-size: 40px;
+//       font-weight: bold;
+//       color: white;
+//       letter-spacing: 1.5px;
+//       @include respond-to($tablet-portrait-up) {
+//         font-size: 48px;
+//       }
+//     }
+//   }
+//   .spec-list {
+//     display: flex;
+//     flex-wrap: wrap;
+//     justify-content: space-around;
+//     width: 100%;
+//     min-height: 400px;
+//     position: relative;
+//     .specialization {
+//       width: 50%;
+//       font-size: 15px;
+//       font-weight: 600;
+//       text-align: center;
+//       display: flex;
+//       justify-content: center;
+//       align-items: center;
+//       margin: 20px 0;
+//       z-index: 2;
+//       @include respond-to($tablet-portrait-up) {
+//         width: 45%;
+//         font-size: 22px;
+//         padding: 20px;
+//       }
+//       @include respond-to(800) {
+//         font-size: 26px;
+//         padding: 0 40px;
+//       }
+//       @include respond-to($desktop-up) {
+//         font-size: 30px;
+//         padding: 0 60px;
+//       }
+//       @include respond-to(1400) {
+//         font-size: 38px;
+//         padding: 0 80px;
+//       }
+//       @include respond-to($large-desktop-up) {
+//         padding: 0 100px;
+//       }
+//     }
+//     .specialization:nth-of-type(3) {
+//       width: 100%;
+//     }
+//     .planet-container {
+//       position: absolute;
+//       top: 50%;
+//       left: 50%;
+//       transform: translate(-50%, -50%);
+//       display: flex;
+//       justify-content: center;
+//       align-items: center;
+//       .planet-overlay {
+//         @include size(200px);
+//         background: rgba(255,81,115,.5);
+//         border-radius: 100%;
+//       }
+//       #planet {
+//         @include size(200px);
+//         border-radius: 100%;
+//         background-image: url(../../../assets/moon.jpg);
+//         background-position-x: 60%;
+//         background-position-y: 60%;
+//         box-shadow: 2px 2px 2px black;
+//         animation: planet-rotate 8s infinite linear;
+//       }
+//     }
+//   }
+//   .list-appear {
+//     animation: listFlash 1s ease-out forwards;
+//   }
+
+//   @keyframes listFlash {
+//     0% { color: $accent; opacity: 0;}
+//     90% { color: $accent; opacity: 1;}
+//     100% { color: white; opacity: 1;}
+//   }
+// }
+
+// @keyframes planet-rotate {
+//   0% {
+//     background-position-x: 60%;
+//   }
+//   100% {
+//     background-position-x: 70%;
+//   }
+// }
+
+/************************ NEW STYLES**********************
+************************* NEW STYLES**********************
+************************* NEW STYLES**********************/
+
+
+
+.mvp-container {
+  padding: 20px;
+
+  .mvp-intro {
+    margin-bottom: 40px;
+  }
+
+  .mvp-item {
+    h1 {
+      font-size: 25px;
+      margin: 10px 0 15px 0;
+      // font-family: 'Ubuntu', sans-serif;
+      color: $primary;
+      font-weight: bold;
+    }
+  }
+}
+
+// START FLIGHT TEAM STYLES
+.flight-team-container {
+  min-height: 575px;
+  width: 100%;
+  background-color: #fff;
+
+  .flight-member-container {
+    display: flex;
+    flex-direction: column;
+    margin: 20px 0px 40px 0px;
+
+    .member-photo {
+      width: 250px;
+      border-radius: 100%;
+      align-self: center;
+      margin: 20px 0;
+
+      @include respond-to($tablet-md) {
+        width: 200px;
+      }
+
+      @include respond-to($desktop-sm) {
+        width: 250px;
+      }
+
+      @include respond-to($desktop-md) {
+        width: 275px;
+      }
+    }
+
+    .flight-member-name {
+      color: $primary;
+      font-size: 30px;
+      margin: 10px 0;
+    }
+
+    .flight-member-title-container {
+      color: $primary-dark;
+      margin: 10px 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      .flight-member-title {
+        font-size: 18px;
+      }
+
+      .social-icons {
+        display: flex;
+        justify-content: center;
+        margin-right: 40px;
+
+        a {
+          color: $accent;
+          margin: 0 5px;
+
+          &:hover {
+            color: $textdivider;
+          }
+
+          #eggy {
+            @include size(24.5px, 28px);
+          }
+        }
+      }
+    }
+  }
+}
+
+// END FLIGHT TEAM STYLES
+// START CONTACT STYLES
+.contact-container {
+  padding: 50px 55px;
+  background-color: $primary;
+  // width: 100vw;
+}
+
+// END CONTACT STYLES
+
+#partners {
+  background: #3e52b3;
+}
+
+.blue-background {
+  background: #3e52b3;
+  color: white;
+}
+
+.container {
+  padding: 50px 15px 50px 15px;
+}

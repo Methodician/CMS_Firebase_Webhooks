@@ -46,8 +46,9 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss",
-              "src/sassy-theme.scss"
+              "node_modules/bootstrap/dist/css/bootstrap.min.css",
+              "src/sass/styles.scss",
+              "src/theme.scss"
             ],
             "scripts": []
           },

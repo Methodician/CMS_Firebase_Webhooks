@@ -1,0 +1,58 @@
+@import "../../../sass/vars.scss";
+
+.category-selector::ng-deep {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: -32px;
+
+  .mat-form-field-infix {
+    border: none;
+  }
+
+  .mat-select-value-text,
+  .mat-select-arrow,
+  .mat-select-placeholder {
+    color: $primary;
+  }
+
+  .mat-form-field-underline {
+    background: $primary;
+  }
+}
+
+::ng-deep .mat-select-panel {
+  max-height: 300px !important;
+
+  .mat-select-content {
+    background-color: $primary;
+  }
+}
+
+.gallery {
+  display: flex;
+  justify-content: center;
+  margin: 48px 0;
+
+  .grid {
+    display: grid;
+    grid-template-columns: 80vw;
+    grid-auto-rows: 80vw;
+    grid-gap: 24px;
+
+    @media screen and (min-width: 600px) {
+      grid-template-columns: 40vw 40vw;
+      grid-auto-rows: 40vw;
+    }
+
+    @media screen and (min-width:1024px) {
+      grid-template-columns: 30vw 30vw 30vw;
+      grid-auto-rows: 30vw;
+    }
+
+    @media screen and (min-width:1490px) {
+      grid-template-columns: 20vw 20vw 20vw 20vw;
+      grid-auto-rows: 20vw;
+    }
+  }
+}

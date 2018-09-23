@@ -1,0 +1,14 @@
+<!-- <fly-carousel-frame [carouselItems]="featuredPosts">
+  <ng-template let-item="item">
+    <fly-carousel-item-blog-post [post]="item"></fly-carousel-item-blog-post>
+  </ng-template>
+</fly-carousel-frame> -->
+
+
+<section class="gallery">
+  <div class="grid">
+    <a *ngFor="let post of posts" [routerLink]="'/blog/post/' + post.slug">
+      <fly-blog-preview-card [post]="post"></fly-blog-preview-card>
+    </a>
+  </div>
+</section>

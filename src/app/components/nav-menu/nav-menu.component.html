@@ -1,0 +1,32 @@
+<div class="navbar-spacer"></div>
+<nav class="container-fluid" (window:resize)="(toggleOn) ? checkWindowWidth() : null">
+
+  <div class="navbar-plate"></div>
+
+  <a class="brand-logo" routerLink="home">
+    <img src="../../../assets/navlogo.png" alt="brand logo">
+  </a>
+
+  <button [class]="'menu-toggle' + toggleStatus()" (click)="toggleOn = !toggleOn" (clickOutside)="toggleOn = false">
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+  </button>
+
+  <ul class="main-menu">
+    <li *ngFor="let item of linkList">
+      <a class="menu-item" [routerLink]="item.link">
+        {{item.text}}</a>
+    </li>
+    <!-- <li class="logout" *ngIf="user" (click)="logOut()">Logout</li> -->
+  </ul>
+
+  <ul [class]="'dropdown' + dropdownStatus()">
+    <li *ngFor="let item of linkList">
+      <a class="menu-item" [routerLink]="item.link">
+        {{item.text}}</a>
+    </li>
+    <!-- <li class="logout" *ngIf="user" (click)="logOut()">Logout</li> -->
+  </ul>
+
+</nav>

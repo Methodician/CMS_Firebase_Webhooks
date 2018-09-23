@@ -1,0 +1,49 @@
+/* Template also uses global Butter CMS Styles */
+@import "../../../sass/vars.scss";
+
+.article-header {
+  margin-bottom: 24px;
+
+  img {
+    max-height: 500px;
+    width: 100%;
+    display: block;
+    object-fit: cover;
+  }
+
+  .title {
+    padding: 15px 20px 20px;
+    background-color: $primary;
+  }
+
+  h1,
+  p {
+    width: 100%;
+    color: #fff;
+  }
+
+  h1 {
+    margin-bottom: 12px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    line-height: 1.2;
+
+    @media screen and (min-width: 640px) {
+      font-size: 2rem;
+    }
+  }
+
+}
+
+.article-content {
+  margin: 0 auto 48px;
+  padding: 24px;
+
+  @media screen and (min-width: 640px) {
+    width: 80%;
+  }
+
+  @media screen and (min-width:1200px) {
+    width: 75%;
+  }
+}

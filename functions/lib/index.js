@@ -19,6 +19,8 @@ const blogDataRef = db.ref(`/blog/blog-data`);
 exports.handleBlogWebhook = functions.https.onRequest((req, res) => __awaiter(this, void 0, void 0, function* () {
     const hookType = req.body.webhook.event;
     const slug = req.body.data.id;
+    console.log('hookType', hookType);
+    console.log('body', req.body);
     if (hookType === 'post.published' || hookType === 'post.update') {
         yield addPostSlug(slug);
         yield addPostData(slug);
@@ -34,7 +36,7 @@ const addPostSlug = (slug) => __awaiter(this, void 0, void 0, function* () {
 });
 const addPostData = (slug) => __awaiter(this, void 0, void 0, function* () {
     const result = yield getPostBySlug(slug);
-    return yield blogDataRef.child(slug).set(result.data);
+    return yield db.ref(`/blog/blog-data/${slug}`).set(result.data);
 });
 const deletePostSlug = (slug) => __awaiter(this, void 0, void 0, function* () {
     return yield db.ref(`/blog/blog-slugs/${slug}`).remove();

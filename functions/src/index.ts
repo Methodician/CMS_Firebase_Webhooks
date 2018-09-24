@@ -11,6 +11,8 @@ const blogDataRef = db.ref(`/blog/blog-data`);
 export const handleBlogWebhook = functions.https.onRequest(async (req, res) => {
     const hookType = req.body.webhook.event;
     const slug = req.body.data.id;
+    console.log('hookType', hookType);
+    console.log('body', req.body);
     if (hookType === 'post.published' || hookType === 'post.update') {
         await addPostSlug(slug);
         await addPostData(slug);
@@ -27,7 +29,7 @@ const addPostSlug = async (slug) => {
 
 const addPostData = async (slug) => {
     const result = await getPostBySlug(slug);
-    return await blogDataRef.child(slug).set(result.data);
+    return await db.ref(`/blog/blog-data/${slug}`).set(result.data);
 }
 
 const deletePostSlug = async (slug) => {

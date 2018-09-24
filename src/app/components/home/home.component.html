@@ -31,7 +31,17 @@
             this is an Angular project after all...</h3>
           <h3>3) Opened a terminal to the Functions folder and npm install buttercms</h3>
           <h3>4) Import admin and Butter into functions/src/index.ts</h3>
-          <h3>5) create my butter constant just like in BlogService</h3>
+          <h3>5) Create my butter constant just like in BlogService</h3>
+          <h3>6) Created my https post Firebase cloud functions to plug webhooks into</h3>
+          <h3>7) in the terminal: firebase deploy --only funcitons</h3>
+          <h2>Hook in Webhooks</h2>
+          <h3>1) Open Firebase console to your project, open Functions from left panel, find your trigger url for the
+            new function, and copy it</h3>
+          <h3>2) Open ButterCMS dashboard. Click your name in upper left --> Settings --> Webhooks and paste the copied
+            url into "Target URL" and select "Blog Post Create, Published, Update, or Delete" from the "Event" dropdown
+          </h3>
+          <h3>3) Try creating, updating, and deleting posts in the CMS to make sure it's working. Look at the Functions
+            log, look at the database, is all good?</h3>
         </div>
       </div>
     </div>

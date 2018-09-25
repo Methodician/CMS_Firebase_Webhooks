@@ -46,6 +46,17 @@
       </div>
     </div>
     <div class="col-12 section-title">
+      <h1>Issues and weird behavior</h1>
+    </div>
+    <div class="mvp-container">
+      <div class="row">
+        <div class="col-12 nvp-intro">
+          <h3>Butter webhooks are funky. For instance setting a post to "draft" triggers a "post.delete" event, but then saving that draft triggers an update to that draft triggers a "post.update" so for best results we really should check the "status" each time we get a publish or update.</h3>
+          <br><br>
+        </div>
+      </div>
+    </div>
+    <div class="col-12 section-title">
       <h1>Other things you could do:</h1>
     </div>
     <div class="mvp-container">
@@ -55,6 +66,10 @@
             slugs and/or some condensed preview objects if Butter's return was too massive (special cases)</h3>
           <br><br>
           <h3>You could use Firebase to create comment system or chats specific to posts or pages.</h3>
+          <br><br>
+          <h3>You could do more complete checks of the status, integrate tag management, etc...</h3>
+          <br><br>
+          <h3>You could add legit security rules to prevent unauthorized users from accessing admin or changing related data.</h3>
         </div>
       </div>
     </div>

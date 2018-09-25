@@ -11,14 +11,13 @@ const blogDataRef = db.ref(`/blog/blog-data`);
 export const handleBlogWebhook = functions.https.onRequest(async (req, res) => {
     const hookType = req.body.webhook.event;
     const slug = req.body.data.id;
-    console.log('hookType', hookType);
     console.log('body', req.body);
     if (hookType === 'post.published' || hookType === 'post.update') {
         await addPostSlug(slug);
         await addPostData(slug);
     } else if (hookType === 'post.delete') {
-        deletePostSlug(slug);
-        deletePostData(slug);
+        archivePostSlug(slug);
+        archivePostData(slug);
     }
     res.end();
 });
@@ -32,11 +31,19 @@ const addPostData = async (slug) => {
     return await db.ref(`/blog/blog-data/${slug}`).set(result.data);
 }
 
-const deletePostSlug = async (slug) => {
+const archivePostSlug = async (slug) => {
+    const res = await db.ref(`/blog/blog-slugs/${slug}`).once('value');
+    const data = res.val(); 
+    console.log('archiving slug data', data);
+    await db.ref(`/blog-archive/blog-slugs/${slug}`).set(data);
     return await db.ref(`/blog/blog-slugs/${slug}`).remove();
 }
 
-const deletePostData = async (slug) => {
+const archivePostData = async (slug) => {
+    const res = await db.ref(`/blog/blog-data/${slug}`).once('value');
+    const data = res.val();
+    console.log('archiving post data', data);
+    await db.ref(`/blog-archive/blog-data/${slug}`).set(data);
     return await db.ref(`/blog/blog-data/${slug}`).remove();
 }
 

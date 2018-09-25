@@ -15,6 +15,8 @@ import { KeysPipe } from './shared/pipes/keys.pipe';
 import { environment } from '../environments/environment';
 import * as firebase from 'firebase/app';
 
+// material stuff
+import { MatChipsModule } from '@angular/material/chips';
 
 @NgModule({
   declarations: [
@@ -31,9 +33,11 @@ import * as firebase from 'firebase/app';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    MatChipsModule
   ],
-  providers: [],
+  providers: [
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {

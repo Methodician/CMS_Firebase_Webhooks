@@ -1,13 +1,9 @@
-<h1>All Posts:</h1>
-<mat-chip-list>
-  <mat-chip *ngFor="let slug of postSlugs" (click)="featureBlogPost(slug)">{{ slug }} last featured: {{ featuredPostList?[slug] }} or {{ archivedFeaturedPostList?[slug] }} </mat-chip>
-</mat-chip-list>
-
-
-<h1>Featured Posts</h1>
-<mat-chip-list *ngIf="featuredPostSlugs && featuredPostSlugs.length > 0">
-  <div *ngFor="let slug of featuredPostSlugs">
-      <mat-chip (click)="unfeatureBlogPost(slug)">{{ slug }}</mat-chip>
-      last featured on {{ featuredPostList[slug] | date }}
-  </div>
-</mat-chip-list>
+<section id="post-list" class="butter-cms-style">
+  <h1>All Posts:</h1>
+  <ul>
+    <li *ngFor="let slug of postSlugs" (click)="featureBlogPost(slug)">
+      <span class="slug">{{ slug }}</span>
+      <span class="featured"> Last Featured: {{ featuredPostList[slug]?.timestamp }}</span>
+    </li>
+  </ul>
+</section>

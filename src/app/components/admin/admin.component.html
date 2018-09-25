@@ -1,9 +1,11 @@
 <section id="post-list" class="butter-cms-style">
   <h1>All Posts:</h1>
   <ul>
-    <li *ngFor="let slug of postSlugs" (click)="featureBlogPost(slug)">
-      <span class="slug">{{ slug }}</span>
-      <span class="featured"> Last Featured: {{ featuredPostList[slug]?.timestamp }}</span>
+    <li *ngFor="let slug of postSlugs" (click)="toggleFeaturedStatus(slug)">
+      <span class="slug" [ngClass]="{'accent' : isFeatured(slug)}">{{ slug }}</span>
+      <span class="featured" *ngIf="isFeatured(slug)"> Last Featured: {{ featuredPostList[slug] | date: 'medium' }}</span>
+      <span class="featured" *ngIf="!isFeatured(slug) && isArchived(slug)"> Last Featured: {{ archivedFeaturedPostList[slug] | date: 'medium' }}</span>
     </li>
   </ul>
 </section>
+

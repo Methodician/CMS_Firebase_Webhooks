@@ -1,81 +1,58 @@
-<div class="container">
-  <div class="row">
-    <div class="col-12 section-title">
-      <h1>Steps I took:</h1>
-    </div>
-    <div class="mvp-container">
-      <div class="row">
-        <div class="col-12 nvp-intro">
-          <h2>Get things started:</h2>
-          <h3>1) Signed up for butter trial with methodician</h3>
-          <h3>2) PW was Test!23</h3>
-          <h3>3) Created new project with Angular CLI, specifying that I wanted routing, didn't want tests, and wanted
-            "hook" as my prefix</h3>
-          <h3>4) npm i firebase @angular/fire buttercms</h3>
-          <h3>5) npm i @angular/material @angular/cdk @angular/animations (Optional step from buter quickstart)</h3>
-          <h3>6) Used styles and themes from <a href="https://flight.run" target="_blank">Flight</a> since I'm not
-            great with css/scss</h3>
-          <br><br>
-          <h2>Build out basics:</h2>
-          <h3>7) Created blog (detail/list/preview), home, admin and nav-menu components (ng g component
-            components/blog)</h3>
-          <h3>8) Created a blog/butter service (ng g service services/blog)</h3>
-          <h3>9) Added all the relevant routes to my nav and routing module</h3>
-          <h3>10) Set up my blog components and service to work with my headless CMS (Butter)</h3>
-          <h3>11) Used Flight's cool carousel system to display featured posts, sompe pipes for HTML, etc...</h3>
-          <br><br>
-          <h2>Introduce functions:</h2>
-          <h3>1) in the terminal: firebase init... I selected RTDB, Functions, and Hosting and chose my default project
-            and defaults except TypeScript for Functions and declined TSLint (since this is a quick demo and I've had
-            issues with it in the past) and I chose "dist" as my public directory and "yes" to configure as SPA since
-            this is an Angular project after all...</h3>
-          <h3>3) Opened a terminal to the Functions folder and npm install buttercms</h3>
-          <h3>4) Import admin and Butter into functions/src/index.ts</h3>
-          <h3>5) Create my butter constant just like in BlogService</h3>
-          <h3>6) Created my https post Firebase cloud functions to plug webhooks into</h3>
-          <h3>7) in the terminal: firebase deploy --only funcitons</h3>
-          <h2>Hook in Webhooks</h2>
-          <h3>1) Open Firebase console to your project, open Functions from left panel, find your trigger url for the
-            new function, and copy it</h3>
-          <h3>2) Open ButterCMS dashboard. Click your name in upper left --> Settings --> Webhooks and paste the copied
-            url into "Target URL" and select "Blog Post Create, Published, Update, or Delete" from the "Event" dropdown
-          </h3>
-          <h3>3) Try creating, updating, and deleting posts in the CMS to make sure it's working. Look at the Functions
-            log, look at the database, is all good?</h3>
-          <h2>Use Firebase to feature and unfeature posts in admin section</h2>
-          <h3>1) Initialize Firebase in app.module.ts</h3>
-          <h3>2) Add relevant methods to blog service</h3>
-          <h3>3) Add a simple UI to admin component</h3>
-        </div>
-      </div>
-    </div>
-    <div class="col-12 section-title">
-      <h1>Issues and weird behavior</h1>
-    </div>
-    <div class="mvp-container">
-      <div class="row">
-        <div class="col-12 nvp-intro">
-          <h3>Butter webhooks are funky. For instance setting a post to "draft" triggers a "post.delete" event, but then saving that draft triggers an update to that draft triggers a "post.update" so for best results we really should check the "status" each time we get a publish or update.</h3>
-          <br><br>
-        </div>
-      </div>
-    </div>
-    <div class="col-12 section-title">
-      <h1>Other things you could do:</h1>
-    </div>
-    <div class="mvp-container">
-      <div class="row">
-        <div class="col-12 nvp-intro">
-          <h3>Butter doesn't return a compressed version of your posts or pages. You could use your Firebase list of
-            slugs and/or some condensed preview objects if Butter's return was too massive (special cases)</h3>
-          <br><br>
-          <h3>You could use Firebase to create comment system or chats specific to posts or pages.</h3>
-          <br><br>
-          <h3>You could do more complete checks of the status, integrate tag management, etc...</h3>
-          <br><br>
-          <h3>You could add legit security rules to prevent unauthorized users from accessing admin or changing related data.</h3>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
+<section id="home" class="butter-cms-style">
+  <h1>Steps I Took</h1>
+  <h2>A. Get things started:</h2>
+  <ol>
+    <li>Signed up for butter trial with methodician</li>
+    <li>PW was Test!23</li>
+    <li>Created new project with Angular CLI, specifying that I wanted routing, didn't want tests, and wanted "hook" as my prefix</li>
+    <li>npm i firebase @angular/fire buttercms</li>
+    <li>npm i @angular/material @angular/cdk @angular/animations (Optional step from buter quickstart)</li>
+    <li>Used styles and themes from <a href="https://flight.run" target="_blank">Flight</a> since I'm not great with css/scss</li>
+  </ol>
+
+  <h2>B. Build out basics</h2>
+  <ol>
+    <li>Created blog (detail/list/preview), home, admin and nav-menu components (ng g component components/blog)</li>
+    <li>Created a blog/butter service (ng g service services/blog)</li>
+    <li>Added all the relevant routes to my nav and routing module</li>
+    <li>Set up my blog components and service to work with my headless CMS (Butter)</li>
+    <li>Used Flight's cool carousel system to display featured posts, sompe pipes for HTML, etc...</li>
+  </ol>
+
+  <h2>C. Introduce functions</h2>
+  <ol>
+    <li>in the terminal: firebase init... I selected RTDB, Functions, and Hosting and chose my default project and defaults except TypeScript for Functions and declined TSLint (since this is a quick demo and I've had issues with it in the past) and I chose "dist" as my public directory and "yes" to configure as SPA since this is an Angular project after all...</li>
+
+    <li>Opened a terminal to the Functions folder and npm install buttercms</li>
+    <li>Import admin and Butter into functions/src/index.ts</li>
+    <li>Create my butter constant just like in BlogService</li>
+    <li>Created my https post Firebase cloud functions to plug webhooks into</li>
+    <li>in the terminal: firebase deploy --only funcitons</li>
+  </ol>
+
+  <h2>D. Hook in Webhooks</h2>
+  <ol>
+    <li>Open Firebase console to your project, open Functions from left panel, find your trigger url for the new function, and copy it</li>
+    <li>Open ButterCMS dashboard. Click your name in upper left --> Settings --> Webhooks and paste the copied url into "Target URL" and select "Blog Post Create, Published, Update, or Delete" from the "Event" dropdown
+    </li>
+    <li>Try creating, updating, and deleting posts in the CMS to make sure it's working. Look at the Functions log, look at the database, is all good?</li>
+  </ol>
+
+  <h2>E. Use Firebase to feature and unfeature posts in admin section</h2>
+  <ol>
+    <li>Initialize Firebase in app.module.ts</li>
+    <li>Add relevant methods to blog service</li>
+    <li>Add a simple UI to admin component</li>
+  </ol>
+
+  <h1>Issues &amp; Weird Behavior</h1>
+  <p>Butter webhooks are funky. For instance setting a post to "draft" triggers a "post.delete" event, but then saving that draft triggers an update to that draft triggers a "post.update" so for best results we really should check the "status" each time we get a publish or update.</p>
+
+  <h1>Other Things You Could Do</h1>
+  <p>Butter doesn't return a compressed version of your posts or pages. You could use your Firebase list of slugs and/or some condensed preview objects if Butter's return was too massive (special cases)</p>
+  <ul>
+    <li>You could use Firebase to create comment system or chats specific to posts or pages.</li>
+    <li>You could do more complete checks of the status, integrate tag management, etc...</li>
+    <li>You could add legit security rules to prevent unauthorized users from accessing admin or changing related data.</li>
+  </ul>
+</section>

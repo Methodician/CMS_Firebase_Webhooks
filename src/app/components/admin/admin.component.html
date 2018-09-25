@@ -1,6 +1,6 @@
 <h1>All Posts:</h1>
 <mat-chip-list>
-  <mat-chip *ngFor="let slug of postSlugs" (click)="featureBlogPost(slug)">{{ slug }}</mat-chip>
+  <mat-chip *ngFor="let slug of postSlugs" (click)="featureBlogPost(slug)">{{ slug }} last featured: {{ featuredPostList?[slug] }} or {{ archivedFeaturedPostList?[slug] }} </mat-chip>
 </mat-chip-list>
 
 

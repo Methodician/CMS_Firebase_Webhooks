@@ -11,6 +11,7 @@ export class AdminComponent implements OnInit {
   postList;
   featuredPostSlugs;
   featuredPostList;
+  archivedFeaturedPostList;
 
   constructor(private blogSvc: BlogService) { }
 
@@ -29,6 +30,12 @@ export class AdminComponent implements OnInit {
          this.featuredPostSlugs = Object.keys(res);
        }
      })
+     // Watch the featured posts acchive
+     this.blogSvc.watchArchivedFeaturedPostSlugs().subscribe(res => {
+       if(res){
+         this.archivedFeaturedPostList = res;
+       }
+     })
   }
 
   featureBlogPost(slug: string){
@@ -37,6 +44,12 @@ export class AdminComponent implements OnInit {
 
   unfeatureBlogPost(slug: string){
     this.blogSvc.unfeaturePost(slug, this.featuredPostList[slug]);
+  }
+
+  isFeatured(slug){
+    if(this.featuredPostSlugs){
+      return this.featuredPostSlugs.indexOf(slug) > -1;
+    }
   }
 
 }

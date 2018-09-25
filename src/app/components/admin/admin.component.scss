@@ -1,0 +1,30 @@
+@import "../../../sass/vars.scss";
+
+#post-list  {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 25px;
+
+  h1 {
+    margin-bottom: 24px;
+  }
+
+  li {
+    width: 500px;
+    list-style: none;
+
+    span.slug {
+      width: 200px;
+      display: inline-block;
+      padding: 5px 15px;
+      border-radius: 20px;
+      background-color: $primary;
+      color: #fff;
+    }
+
+    span.featured {
+      margin-left: 20px;
+    }
+  }
+}

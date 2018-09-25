@@ -52,22 +52,34 @@ h1 {
   .grid {
     display: grid;
     grid-template-columns: 80vw;
-    grid-auto-rows: 80vw;
     grid-gap: 24px;
 
     @media screen and (min-width: 600px) {
       grid-template-columns: 40vw 40vw;
-      grid-auto-rows: 40vw;
     }
 
     @media screen and (min-width:1024px) {
       grid-template-columns: 30vw 30vw 30vw;
-      grid-auto-rows: 30vw;
     }
 
     @media screen and (min-width:1490px) {
       grid-template-columns: 20vw 20vw 20vw 20vw;
-      grid-auto-rows: 20vw;
+    }
+  }
+
+  .grid-item {
+    height: 80vw;
+
+    @media screen and (min-width: 600px) {
+      height: 40vw;
+    }
+
+    @media screen and (min-width:1024px) {
+      height: 30vw;
+    }
+
+    @media screen and (min-width:1490px) {
+      height: 20vw;
     }
   }
 }

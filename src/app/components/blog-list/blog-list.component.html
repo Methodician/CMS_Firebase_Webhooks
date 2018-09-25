@@ -2,7 +2,7 @@
 <!-- <pre> {{ featuredPosts | json }}</pre> -->
 <section class="gallery">
   <div class="grid">
-    <a *ngFor="let post of featuredPosts" [routerLink]="'/blog/post/' + post.slug">
+    <a *ngFor="let post of featuredPosts" [routerLink]="'/blog/post/' + post.slug" class="grid-item">
       <fly-blog-preview-card [post]="post"></fly-blog-preview-card>
     </a>
   </div>
@@ -13,7 +13,7 @@
 <h1>All Posts</h1>
 <section class="gallery">
   <div class="grid">
-    <a *ngFor="let post of posts" [routerLink]="'/blog/post/' + post.slug">
+    <a *ngFor="let post of posts" [routerLink]="'/blog/post/' + post.slug" class="grid-item">
       <fly-blog-preview-card [post]="post"></fly-blog-preview-card>
     </a>
   </div>

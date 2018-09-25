@@ -21,11 +21,30 @@ export class BlogListComponent implements OnInit {
 
   ngOnInit() {
     this.getPosts();
+    this.getFeaturedPosts();
   }
 
   async getPosts() {
     const results = await this.blogService.getPosts();
     this.posts = results.data;
+  }
+
+  async getPostBySlug(slug){
+    const result = await this.blogService.getPostBySlug(slug);
+    return result;
+  }
+
+  getFeaturedPosts(){
+     this.blogService.watchFeaturedPostSlugs().subscribe(async (result) => {
+       if(result){
+          this.featuredPosts = [];
+          const slugs = Object.keys(result);
+          for(let slug of slugs){
+            const post = await this.blogService.getPostBySlug(slug);
+            this.featuredPosts.push(post.data);
+          }
+       }
+     });
   }
 
 }

@@ -9,8 +9,8 @@ import { BlogService } from '../../services/blog.service';
 export class AdminComponent implements OnInit {
   postSlugs;
   postList;
-  featuredPostSlugs;
   featuredPostList;
+  archivedFeaturedPostList;
 
   constructor(private blogSvc: BlogService) { }
 
@@ -26,9 +26,22 @@ export class AdminComponent implements OnInit {
      this.blogSvc.watchFeaturedPostSlugs().subscribe(res => {
        if(res){
          this.featuredPostList = res;
-         this.featuredPostSlugs = Object.keys(res);
        }
      })
+     // Watch the featured posts acchive
+     this.blogSvc.watchArchivedFeaturedPostSlugs().subscribe(res => {
+       if(res){
+         this.archivedFeaturedPostList = res;
+       }
+     })
+  }
+
+  toggleFeaturedStatus(slug: string){
+    if(this.isFeatured(slug)){
+      this.unfeatureBlogPost(slug);
+    } else {
+      this.featureBlogPost(slug);
+    }
   }
 
   featureBlogPost(slug: string){
@@ -37,6 +50,18 @@ export class AdminComponent implements OnInit {
 
   unfeatureBlogPost(slug: string){
     this.blogSvc.unfeaturePost(slug, this.featuredPostList[slug]);
+  }
+
+  isFeatured(slug){
+    if(this.featuredPostList){
+      return !!this.featuredPostList[slug];
+    }
+  }
+
+  isArchived(slug){
+    if(this.archivedFeaturedPostList){
+      return !!this.archivedFeaturedPostList[slug];
+    }
   }
 
 }

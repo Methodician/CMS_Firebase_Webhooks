@@ -49,6 +49,14 @@ export class BlogService {
     return subject;
   }
 
+  watchArchivedFeaturedPostSlugs(): BehaviorSubject<any> {
+    const subject = new BehaviorSubject(null);
+    this.db.ref('/blog-archive/featured-posts').on('value', res => {
+      subject.next(res.val());
+    })
+    return subject;
+  }
+
   async featurePost(slug){
     return await this.db.ref(`/blog/featured-posts/${slug}`).set(firebase.database.ServerValue.TIMESTAMP);
   }

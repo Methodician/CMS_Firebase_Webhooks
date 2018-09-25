@@ -11,7 +11,7 @@
   }
 
   li {
-    width: 500px;
+    width: 650px;
     list-style: none;
 
     span.slug {
@@ -25,6 +25,10 @@
 
     span.featured {
       margin-left: 20px;
+    }
+
+    span.accent {
+      background-color: $accent;
     }
   }
 }

@@ -12,6 +12,9 @@ import { BlogPreviewCardComponent } from './components/blog-preview-card/blog-pr
 import { TruncatePipe } from './shared/pipes/truncate.pipe';
 import { SafeHtmlPipe } from './shared/pipes/safe-html.pipe';
 import { KeysPipe } from './shared/pipes/keys.pipe';
+import { environment } from '../environments/environment';
+import * as firebase from 'firebase/app';
+
 
 @NgModule({
   declarations: [
@@ -33,4 +36,9 @@ import { KeysPipe } from './shared/pipes/keys.pipe';
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+  
+  constructor(){
+    firebase.initializeApp(environment.fbConfig);
+  }
+}

@@ -1,3 +1,9 @@
-<p>
-  admin works!
-</p>
+<h1>All Posts:</h1>
+<ul>
+  <li *ngFor="let slug of postSlugs" (click)="featureBlogPost(slug)">{{ slug }}</li>
+</ul>
+
+<h1>Featured Posts</h1>
+<ul>
+  <li *ngFor="let slug of featuredPostSlugs" (click)="unfeatureBlogPost(slug)">{{ slug }} last featured on {{ featuredPostList[slug] | date }}</li>
+</ul>
